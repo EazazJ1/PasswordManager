@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
       username: 1,
       password: 1,
       iv: 1,
+      lastUpdated: 1,
       _id: 0,
     });
 
@@ -27,6 +28,7 @@ router.post("/", async (req, res) => {
     username: req.body.username,
     password: req.body.password,
     iv: req.body.iv,
+    lastUpdated: new Date().toLocaleString()
   });
   try {
     const newPassword = await password.save();
@@ -48,6 +50,7 @@ router.patch("/update", async (req, res) => {
     }
     if (req.body.password != null) {
         service.password = req.body.password;
+        service.lastUpdated = new Date().toLocaleString();
     }
     const updatedPassword = await service.save();
     res.json(updatedPassword);

@@ -16,7 +16,12 @@ const passwordSchema = new mongoose.Schema({
   iv: {
     type: String,
     required: true
+  },
+  lastUpdated: {
+    type: String,
+    required: true
   }
+
 })
 
 module.exports = mongoose.model('Password', passwordSchema)
