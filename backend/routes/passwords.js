@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
     });
 
     res.json(passwords);
-
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -23,7 +22,6 @@ router.get("/", async (req, res) => {
 
 //Add a password
 router.post("/", async (req, res) => {
-  
   const password = new Password({
     service: req.body.service,
     username: req.body.username,
@@ -38,5 +36,59 @@ router.post("/", async (req, res) => {
   }
 });
 
+//Can update password
+router.patch("/update", async (req, res) => {
+  try {
+    let service = await Password.findOne({
+      service: req.body.service,
+      username: req.body.username,
+    });
+    if (service.length == 0) {
+      return res.status(404).json({ message: "Cannot find student" });
+    }
+    if (req.body.password != null) {
+        service.password = req.body.password;
+    }
+    const updatedPassword = await service.save();
+    res.json(updatedPassword);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+//Delete a service and password
+router.delete("/delete", getService, async (req, res) => {
+  try {
+    await res.password.remove();
+
+    res.json({
+      message:
+        "Deleted " + req.body.service + " Password for " + req.body.username,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+//Check to see if the service exists
+async function getService(req, res, next) {
+  let password;
+  try {
+    password = await Password.findOne({
+      service: req.body.service,
+      username: req.body.username,
+    });
+    if (password.length == 0) {
+      return res
+        .status(404)
+        .json({ message: "Cannot find Service or Username" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+
+  res.password = password;
+  next();
+}
 
 module.exports = router;
