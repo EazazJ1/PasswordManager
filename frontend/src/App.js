@@ -1,9 +1,10 @@
 import './App.css';
+import AddPassword from "./pages/addPassword";
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello World</h1>
+     <AddPassword />
     </div>
   );
 }

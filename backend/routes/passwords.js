@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
     service: req.body.service,
     username: req.body.username,
     password: req.body.password,
-    iv: req.body.iv,
+    iv: "000111000",
     lastUpdated: new Date().toLocaleString()
   });
   try {
