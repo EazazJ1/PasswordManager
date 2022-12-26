@@ -3,6 +3,9 @@ const { Model, model } = require("mongoose");
 const router = express.Router();
 const Password = require("../models/password");
 
+const { encrypt, decrypt} = require("../Encryption");
+const password = require("../models/password");
+
 //Getting all passwords
 router.get("/", async (req, res) => {
   try {
@@ -15,6 +18,10 @@ router.get("/", async (req, res) => {
       _id: 0,
     });
 
+    for(i in passwords){
+      decrypt(passwords[i]);
+    }
+
     res.json(passwords);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -23,11 +30,12 @@ router.get("/", async (req, res) => {
 
 //Add a password
 router.post("/", async (req, res) => {
+  const encrypted = encrypt(req.body.username, req.body.password);
   const password = new Password({
     service: req.body.service,
-    username: req.body.username,
-    password: req.body.password,
-    iv: "000111000",
+    username: encrypted.username,
+    password: encrypted.password,
+    iv: encrypted.iv,
     lastUpdated: new Date().toLocaleString()
   });
   try {
