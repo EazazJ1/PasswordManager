@@ -17,7 +17,9 @@ db.once('open', () => console.log('Connected to Database'));
 
 
 const passwordRouter = require('./routes/passwords');
+const loginRouter = require('./routes/logins');
 
 app.use('/passwords', passwordRouter);
+app.use('/login', loginRouter);
 
 app.listen(3001, () => console.log('Server Started'))

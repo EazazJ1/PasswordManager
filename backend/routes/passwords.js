@@ -2,9 +2,7 @@ const express = require("express");
 const { Model, model } = require("mongoose");
 const router = express.Router();
 const Password = require("../models/password");
-
 const { encrypt, decrypt} = require("../Encryption");
-const password = require("../models/password");
 
 //Getting all passwords
 router.get("/", async (req, res) => {
