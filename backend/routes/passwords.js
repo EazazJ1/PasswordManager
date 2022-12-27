@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 });
 
 //Add a password
-router.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
   const encrypted = encrypt(req.body.username, req.body.password);
   const password = new Password({
     service: req.body.service,

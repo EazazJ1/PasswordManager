@@ -17,7 +17,6 @@ router.post("/", async (req, res) => {
         .status(404)
         .json({ message: "Cannot find User or username is incorrect." });
     } else {
-      console.log(user);
       bcrypt.compare(
         req.body.password,
         user.password,
@@ -38,7 +37,7 @@ router.post("/", async (req, res) => {
 });
 
 //Register a new user
-router.post("/", (req, res) => {
+router.post("/new", (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, async (err, hash) => {
     const hashedPass = new User({
       email: req.body.email,
