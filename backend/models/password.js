@@ -20,6 +20,10 @@ const passwordSchema = new mongoose.Schema({
   lastUpdated: {
     type: String,
     required: true
+  },
+  userid: {
+    type: String,
+    required: true
   }
 
 })

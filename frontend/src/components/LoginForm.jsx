@@ -39,6 +39,8 @@ export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
         setCurrentUsername(response.data._id);
         myStorage.setItem("user", response.data._id);
         setShowLogin(false);
+        //Add where to redirect after logging in
+        window.location.href = "/main";
       })
       .catch(function (error) {
         setError(true);

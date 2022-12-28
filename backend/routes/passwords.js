@@ -5,15 +5,16 @@ const Password = require("../models/password");
 const { encrypt, decrypt} = require("../Encryption");
 
 //Getting all passwords
-router.get("/", async (req, res) => {
+router.get("/:userid", async (req, res) => {
   try {
-    const passwords = await Password.find().select({
+    const passwords = await Password.find({userid: req.params.userid,}).select({
       service: 1,
       username: 1,
       password: 1,
       iv: 1,
       lastUpdated: 1,
-      _id: 0,
+      _id: 1,
+      userid: 1,
     });
 
     for(i in passwords){
@@ -34,7 +35,8 @@ router.post("/new", async (req, res) => {
     username: encrypted.username,
     password: encrypted.password,
     iv: encrypted.iv,
-    lastUpdated: new Date().toLocaleString()
+    lastUpdated: new Date().toLocaleString(),
+    userid: req.body.userid
   });
   try {
     const newPassword = await password.save();
