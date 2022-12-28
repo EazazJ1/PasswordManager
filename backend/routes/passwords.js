@@ -50,15 +50,17 @@ router.post("/new", async (req, res) => {
 router.patch("/update", async (req, res) => {
   try {
     let service = await Password.findOne({
-      service: req.body.service,
-      username: req.body.username,
+      _id: req.body._id,
     });
     if (service.length == 0) {
       return res.status(404).json({ message: "Cannot find student" });
     }
     if (req.body.password != null) {
-        service.password = req.body.password;
-        service.lastUpdated = new Date().toLocaleString();
+      const encrypted = encrypt(req.body.username, req.body.password);
+      service.username = encrypted.username,
+      service.password = encrypted.password,
+      service.iv = encrypted.iv,
+      service.lastUpdated = new Date().toLocaleString();
     }
     const updatedPassword = await service.save();
     res.json(updatedPassword);
@@ -68,13 +70,13 @@ router.patch("/update", async (req, res) => {
 });
 
 //Delete a service and password
-router.delete("/delete", getService, async (req, res) => {
+router.delete("/delete/:id", getService, async (req, res) => {
   try {
     await res.password.remove();
 
     res.json({
       message:
-        "Deleted " + req.body.service + " Password for " + req.body.username,
+        "Deleted password with id: " + req.params._id,
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -86,8 +88,7 @@ async function getService(req, res, next) {
   let password;
   try {
     password = await Password.findOne({
-      service: req.body.service,
-      username: req.body.username,
+      _id: req.params.id,
     });
     if (password.length == 0) {
       return res

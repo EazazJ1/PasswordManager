@@ -6,6 +6,7 @@ import Login from "./pages/login"
 import Register from "./pages/register";
 import Homepage from "./pages/homepage";
 import Mainpage from "./pages/Mainpage";
+import { EditForm } from "./components/EditForm";
 
 function App() {
   const check = localStorage.getItem("user");
@@ -19,6 +20,7 @@ function App() {
         <Route path="/passwords/new" element={check != null ? <AddPassword /> : <Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Mainpage />} />
+        <Route path="/update" element={<EditForm />} />
       </Routes>
     </BrowserRouter>
   );

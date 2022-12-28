@@ -8,6 +8,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import "./PasswordTable.css"
 import { TextField } from "@mui/material";
+import { EditForm } from "./EditForm";
+
 
 //import AddPassword from "./pages/addPassword";
 
@@ -50,11 +52,11 @@ export const PasswordTable = ({ passwordList }) => {
                   <td>{password.lastUpdated}</td>
                   <td>
                     <Link
-                    //   to="/UpdateStudentForm"
-                    //   state={{ studentNumber: student.studentNumber }}
+                      to="/update"
+                      state={{ id: password._id, username: password.username }}
                     >
                       {" "}
-                      <button type="button" className="editBtn">
+                      <button type="button" className="editBtn" >
                         Edit
                       </button>
                     </Link>
@@ -63,9 +65,9 @@ export const PasswordTable = ({ passwordList }) => {
                     <button
                       type="button"
                       className="deleteBtn"
-                    //   onClick={() =>
-                    //     deletePasswordClicked(password.service, password.username)
-                    //   }
+                      onClick={() =>
+                        deletePasswordClicked(password._id)
+                      }
                     >
                       Delete
                     </button>
@@ -81,16 +83,16 @@ export const PasswordTable = ({ passwordList }) => {
   );
 };
 
-// function deletePasswordClicked(service, username) {
-//     axios
-//       .delete(`${process.env.REACT_APP_MAINSERVER}/passwords/delete`)
-//       .then(function (response) {
-//         console.log(response);
-//         window.location.reload();
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//     //window.location.reload()
-//     //return(<Link to='/HomePage'></Link>);
-//   }
+function deletePasswordClicked(id) {
+    axios
+      .delete(`${process.env.REACT_APP_MAINSERVER}/passwords/delete/${id}`)
+      .then(function (response) {
+        console.log(response);
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    //window.location.reload()
+    //return(<Link to='/HomePage'></Link>);
+  }
