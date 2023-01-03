@@ -3,8 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import "./LoginForm.css";
-import { useState } from "react";
-import CloseIcon from '@mui/icons-material/Close';
 import { useLocation } from "react-router-dom";
 
 export const EditForm = () => {

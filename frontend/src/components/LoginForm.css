@@ -26,25 +26,6 @@
     flex-direction: column;
 }
 
-/* .inputBox {
-    font-size: 18px;
-    justify-content: space-between;
-    align-items: center;
-} */
-
-/* .centerForm {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    position: flex;
-}
-
-h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .confirmButton {
     font-size: medium;
     width: 100%;

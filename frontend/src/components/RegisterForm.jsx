@@ -36,7 +36,6 @@ export const RegisterForm = ({setShowRegister}) => {
         password: data.password,
       })
       .then(function (response) {
-        // window.location.href = "/";
         setError(false);
         setSuccess(true);
         console.log(response.data);
@@ -52,7 +51,6 @@ export const RegisterForm = ({setShowRegister}) => {
       <div className="formTitle">
         <h2>Create a new Account</h2>
       </div>
-      {/* <div className="centerForm"> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>E-mail</label>
         <br />
@@ -102,7 +100,5 @@ export const RegisterForm = ({setShowRegister}) => {
         onClick={() => setShowRegister(false)}
       />
     </div>
-    // </div>
-    // </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { PasswordTable } from "../components/PasswordTable";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 const Mainpage = ()=> {
     const [passwordList, setPasswordList] = useState(null);

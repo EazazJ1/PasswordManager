@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Navbar.css"
 import React from "react";
 import { RegisterForm } from "./components/RegisterForm";
@@ -25,7 +25,7 @@ export const Navbar = () => {
   return (
   <div className="nav">    
     <div className="backToHomePage">
-      <Link onClick={() => {check != null ? window.location.href="/main" : window.location.href="/" }}>Homepage</Link>      
+      <button className = "button homeButton" onClick={() => {check != null ? window.location.href="/main" : window.location.href="/" }}>Homepage</button>      
     </div>
     {/* <div className="backToHomePage">
       <Link onClick={() => {window.location.href="/login/new"}}>Register</Link>      
@@ -33,9 +33,9 @@ export const Navbar = () => {
     <div className="backToHomePage">
       <Link onClick={() => {window.location.href="/login"}}>Login</Link>      
     </div> */}
-    <div className="backToHomePage">
+    {/* <div className="backToHomePage">
       <Link onClick={() => {window.location.href="/passwords/new"}}>Add New Password</Link>      
-    </div>  
+    </div>   */}
     <div className="">
       {currentUsername ? (
         <button className="button logout" onClick={handleLogout}> Log Out</button>

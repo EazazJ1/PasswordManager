@@ -29,13 +29,6 @@ export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
         password: data.password,
       })
       .then(function (response) {
-        // if (response.data.message) {
-        //   <p>{errors.password?.message}</p>;
-        // } else {
-        //   window.location.href = "/passwords";
-        //   console.log(response.data);
-        // }
-
         setCurrentUsername(response.data._id);
         myStorage.setItem("user", response.data._id);
         setShowLogin(false);
@@ -81,7 +74,5 @@ export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
         onClick={() => setShowLogin(false)}
       />
     </div>
-    //   </div>
-    // </div>
   );
 };

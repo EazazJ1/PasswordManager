@@ -1,17 +1,7 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import axios from "axios";
 import "./LoginForm.css";
-import { useState } from "react";
-import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import "./PasswordTable.css"
-import { TextField } from "@mui/material";
-import { EditForm } from "./EditForm";
-
-
-//import AddPassword from "./pages/addPassword";
 
 export const PasswordTable = ({ passwordList }) => {
 
@@ -75,7 +65,6 @@ export const PasswordTable = ({ passwordList }) => {
                 </tr>
               ))}
             </tbody>
-            {/* </div> */}
           </table>
         </div>
       </div>
@@ -93,6 +82,4 @@ function deletePasswordClicked(id) {
       .catch(function (error) {
         console.log(error);
       });
-    //window.location.reload()
-    //return(<Link to='/HomePage'></Link>);
   }
