@@ -4,6 +4,7 @@ import React from "react";
 import { RegisterForm } from "./components/RegisterForm";
 import { useState } from "react";
 import { LoginForm } from "./components/LoginForm";
+import { useNavigate } from 'react-router-dom';
 
 
 export const Navbar = () => {
@@ -14,10 +15,13 @@ export const Navbar = () => {
   const myStorage = window.localStorage;
   const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("user"));
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     setCurrentUsername(null);
     myStorage.removeItem("user");
-    window.location.href="/";
+    // window.location.href="/";
+    navigate('/');
   };
 
   const check = localStorage.getItem("user");
@@ -25,7 +29,8 @@ export const Navbar = () => {
   return (
   <div className="nav">    
     <div className="backToHomePage">
-      <button className = "button homeButton" onClick={() => {check != null ? window.location.href="/main" : window.location.href="/" }}>Homepage</button>      
+      <button className = "button homeButton" onClick={() => {check != null ?  navigate('/main') :  navigate('/') }}>Homepage</button> 
+      {/* <button className = "button homeButton" onClick={() => {check != null ? window.location.href="/main" : window.location.href="/" }}>Homepage</button>       */}
     </div>
     {/* <div className="backToHomePage">
       <Link onClick={() => {window.location.href="/login/new"}}>Register</Link>      

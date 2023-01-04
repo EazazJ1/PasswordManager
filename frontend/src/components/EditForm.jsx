@@ -3,11 +3,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import "./LoginForm.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const EditForm = () => {
   const location = useLocation();
   const { id, username } = location.state;
+  const navigate = useNavigate();
   
   const schema = yup.object().shape({
     password: yup.string().required("New password is Required!"),
@@ -34,7 +35,8 @@ export const EditForm = () => {
       })
       .then(function (response) {
         //Add where to redirect after logging in
-        window.location.href = "/main";
+        // window.location.href = "/main";
+        navigate('/main');
       })
       .catch(function (error) {
         console.log(error);

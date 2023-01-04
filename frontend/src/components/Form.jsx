@@ -3,8 +3,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import "../pages/addPassword.css";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
+
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     service: yup.string().required("The Service Name is Required!"),
     username: yup.string().required("Your username is Required!"),
@@ -28,7 +32,8 @@ export const Form = () => {
         userid: localStorage.getItem("user"),
       })
       .then(function (response) {
-        window.location.href = "/main";
+        // window.location.href = "/main";
+        navigate("/main");
         console.log(response);
       })
       .catch(function (error) {

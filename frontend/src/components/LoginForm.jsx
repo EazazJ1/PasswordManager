@@ -5,9 +5,14 @@ import axios from "axios";
 import "./LoginForm.css";
 import { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
   const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
+
+  
 
   const schema = yup.object().shape({
     username: yup.string().required("Your username is Required!"),
@@ -33,7 +38,8 @@ export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
         myStorage.setItem("user", response.data._id);
         setShowLogin(false);
         //Add where to redirect after logging in
-        window.location.href = "/main";
+        // window.location.href = "/main";
+        navigate('/main');
       })
       .catch(function (error) {
         setError(true);
