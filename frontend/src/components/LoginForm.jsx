@@ -68,16 +68,15 @@ export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
               placeholder="Username"
               {...register("username")}
             />
-            <p>{errors.username?.message}</p>
+            <p className="errorCheck">{errors.username?.message}</p>
             {/* <label>Password</label> */}
-            <br />
             <input
               className="inputBox"
               type="password"
               placeholder="Password"
               {...register("password")}
             />
-            <p>{errors.password?.message}</p>
+            <p className="errorCheck">{errors.password?.message}</p>
 
             <input className="confirmButton" type="submit" value="Login" />
             {error && <span className="failure">Something went wrong!</span>}

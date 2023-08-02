@@ -47,58 +47,62 @@ export const RegisterForm = ({setShowRegister}) => {
   };
 
   return (
-    <div className="mainform">
-      <div className="formTitle">
-        <h2>Create a new Account</h2>
-      </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>E-mail</label>
-        <br />
-        <input
-          className="inputBox"
-          type="text"
-          placeholder="E-mail..."
-          {...register("email")}
-        />
-        <p>{errors.email?.message}</p>
-        <label>Username</label>
-        <br />
-        <input
-          className="inputBox"
-          type="text"
-          placeholder="Username..."
-          {...register("username")}
-        />
-        <p>{errors.username?.message}</p>
-        <label>Password</label>
-        <br />
-        <input
-          className="inputBox"
-          type="password"
-          placeholder="Password..."
-          {...register("password")}
-        />
-        <p>{errors.password?.message}</p>
-        <label>Confirm Password</label>
-        <br />
-        <input
-          className="inputBox"
-          type="password"
-          placeholder="Retype Password..."
-          {...register("retypePassword")}
-        />
-        <p>{errors.retypePassword?.message}</p>
+    <div className="mainRegisterPage">
+      <div className="mainform">
+        <div className="registerHeader">
+          <div className="formTitle font-sans">
+            <h2>Create a new Account</h2>
+          </div>
+        </div>        
+        <form className="registerForm" onSubmit={handleSubmit(onSubmit)}>
+          {/* <label>E-mail</label> */}
+          {/* <br /> */}
+          <input
+            className="inputBox"
+            type="text"
+            placeholder="E-mail"
+            {...register("email")}
+          />
+          <p className="errorCheck">{errors.email?.message}</p>
+          {/* <label>Username</label> */}
+          {/* <br /> */}
+          <input
+            className="inputBox"
+            type="text"
+            placeholder="Username"
+            {...register("username")}
+          />
+          <p className="errorCheck">{errors.username?.message}</p>
+          {/* <label>Password</label> */}
+          {/* <br /> */}
+          <input
+            className="inputBox"
+            type="password"
+            placeholder="Password"
+            {...register("password")}
+          />
+          <p className="errorCheck">{errors.password?.message}</p>
+          {/* <label>Confirm Password</label> */}
+          {/* <br /> */}
+          <input
+            className="inputBox"
+            type="password"
+            placeholder="Retype Password"
+            {...register("retypePassword")}
+          />
+          <p className="errorCheck">{errors.retypePassword?.message}</p>
 
-        <input className="confirmButton" type="submit" value="Create Account" />
-        {success && (
-          <span className="success">Successfull. You can login now!</span>
-        )}
-        {error && <span className="failure">Something went wrong!</span>}
-      </form>
-      <CloseIcon
-        className="registerCancel"
-        onClick={() => setShowRegister(false)}
-      />
+          <input className="confirmButton" type="submit" value="Create Account" />
+          {success && (
+            <span className="success">Successfull. You can login now!</span>
+          )}
+          {error && <span className="failure">Something went wrong!</span>}
+        </form>
+        <CloseIcon
+          className="registerCancel"
+          onClick={() => setShowRegister(false)}
+        />
+      </div>
     </div>
   );
 };

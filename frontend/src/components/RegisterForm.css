@@ -1,9 +1,27 @@
+.mainRegisterPage {
+    width: 100%;
+    height: 92vh;
+    margin-top: 8vh;
+    /* padding: 20px; */
+    background-color: #001f41;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* margin: auto; */
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .mainform {
-    width: 300px;
-    height: 400px;
+    width: 325px;
+    height: 425px;
     padding: 20px;
     border-radius: 10px;
-    background-color: teal;
+    background-color: white;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -19,19 +37,26 @@
 .confirmButton {
     border: none;
     padding: 5px;
-    background-color: slateblue;
+    background-color: #373FEC;
     color: white;
     cursor: pointer;
 }
 
 .formTitle {
-
     display: flex;
     align-items: center;
     justify-content: center;
     color: black;
     font-weight: 700;
+}
 
+.registerForm{
+    width: 100%;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    flex-direction: column;
 }
 
 .success {
@@ -51,4 +76,24 @@
     top: 3px;
     right: 3px;
     cursor: pointer;
+}
+
+.registerHeader{
+    margin-bottom: 10px;
+}
+
+.errorCheck{
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: rgb(231, 74, 74);
+}
+
+.inputBox{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    border-color: rgb(224, 224, 224);
+    font-size: small;
+    margin-bottom: 8px;
 }
