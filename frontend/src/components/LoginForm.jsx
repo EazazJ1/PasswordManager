@@ -48,37 +48,46 @@ export const LoginForm = ({setShowLogin, setCurrentUsername,myStorage}) => {
   };
 
   return (
-    <div className="mainFormLogin">
-      <div className="formTitle">
-        <h2>Login</h2>
-      </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Username</label>
-        <br />
-        <input
-          className="inputBox"
-          type="text"
-          placeholder="Username..."
-          {...register("username")}
-        />
-        <p>{errors.username?.message}</p>
-        <label>Password</label>
-        <br />
-        <input
-          className="inputBox"
-          type="password"
-          placeholder="Password..."
-          {...register("password")}
-        />
-        <p>{errors.password?.message}</p>
+    <div className="loginPageDiv">
+      <div className="mainLogin">        
+        <div className="mainFormLogin">
+          <div className="header">
+            <div className="formTitle font-sans">
+              <h2>Welcome</h2>
+            </div>
+            <div className="font-sans">
+              <p>Login to continue</p>
+            </div>
+          </div>
+          <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+            {/* <label>Username</label> */}
+            {/* <br /> */}
+            <input
+              className="inputBox"
+              type="text"
+              placeholder="Username"
+              {...register("username")}
+            />
+            <p>{errors.username?.message}</p>
+            {/* <label>Password</label> */}
+            <br />
+            <input
+              className="inputBox"
+              type="password"
+              placeholder="Password"
+              {...register("password")}
+            />
+            <p>{errors.password?.message}</p>
 
-        <input className="confirmButton" type="submit" value="Login" />
-        {error && <span className="failure">Something went wrong!</span>}
-      </form>
-      <CloseIcon
-        className="loginCancel"
-        onClick={() => setShowLogin(false)}
-      />
+            <input className="confirmButton" type="submit" value="Login" />
+            {error && <span className="failure">Something went wrong!</span>}
+          </form>
+          <CloseIcon
+            className="loginCancel"
+            onClick={() => setShowLogin(false)}
+          />
+        </div>
+      </div>
     </div>
   );
 };
