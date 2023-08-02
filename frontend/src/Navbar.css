@@ -1,8 +1,7 @@
 .buttons,
 .logout {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  /* margin-top: 2px; */
+  /* margin-right: 0; */
 }
 
 .button {
@@ -10,7 +9,9 @@
   padding: 5px;
   border-radius: 5px;
   color: white;
-  font-weight: 500;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -19,26 +20,31 @@
 }
 
 .logout{
-  background-color: tomato;
+  background-color: transparent;
+  margin-right: 50px;
 }
 
 .login{
-  background-color: teal;
-  margin-right: 10px;
+  background-color: #002955;
+  margin-right: 50px;
 }
 
 .register{
-  background-color: slateblue;
+  background-color: #002955;
+  margin-right: 50px;
 }
 
 .homeButton{
-  background-color:cadetblue;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  background-color:#002955;
+  margin-left: 10px;
+  font-weight: 400;
 }
 
 .nav{
-  height: 50px;
-  background-color: aliceblue;
+  height: 8vh;
+  background-color: #002955;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
 }

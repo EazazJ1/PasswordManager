@@ -29,7 +29,7 @@ export const Navbar = () => {
   return (
   <div className="nav">    
     <div className="backToHomePage">
-      <button className = "button homeButton" onClick={() => {check != null ?  navigate('/main') :  navigate('/') }}>Homepage</button> 
+      <button className = "button homeButton" onClick={() => {check != null ?  navigate('/main') :  navigate('/') }}>Jakda Passwords</button> 
       {/* <button className = "button homeButton" onClick={() => {check != null ? window.location.href="/main" : window.location.href="/" }}>Homepage</button>       */}
     </div>
     {/* <div className="backToHomePage">

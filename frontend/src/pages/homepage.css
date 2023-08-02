@@ -1,4 +1,4 @@
-.buttons,
+/* .buttons,
 .logout {
   position: absolute;
   top: 10px;
@@ -10,7 +10,8 @@
   padding: 5px;
   border-radius: 5px;
   color: white;
-  font-weight: 500;
+  font-family: sans-serif;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -23,13 +24,13 @@
 }
 
 .login{
-  background-color: teal;
+  background-color: #002955;
   margin-right: 10px;
 }
 
 .register{
-  background-color: slateblue;
-}
+  background-color: #002955;
+} */
 
 .homeTitle{
   text-align: center;
