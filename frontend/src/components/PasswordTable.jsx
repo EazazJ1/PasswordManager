@@ -64,7 +64,7 @@ export const PasswordTable = () => {
             <thead>
               <tr>
                 <th>Service</th>
-                <th>Userame</th>
+                <th>Username</th>
                 <th>Password</th>
                 <th>Last Updated</th>
                 <th></th>
