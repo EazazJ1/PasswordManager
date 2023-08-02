@@ -29,7 +29,7 @@ export const Navbar = () => {
   return (
   <div className="nav">    
     <div className="backToHomePage">
-      <button className = "button homeButton" onClick={() => {check != null ?  navigate('/main') :  navigate('/') }}>Jakda Passwords</button> 
+      <button className = "button homeButton font-sans" onClick={() => {check != null ?  navigate('/main') :  navigate('/') }}>Jakda Passwords</button> 
       {/* <button className = "button homeButton" onClick={() => {check != null ? window.location.href="/main" : window.location.href="/" }}>Homepage</button>       */}
     </div>
     {/* <div className="backToHomePage">
@@ -43,15 +43,15 @@ export const Navbar = () => {
     </div>   */}
     <div className="">
       {currentUsername ? (
-        <button className="button logout" onClick={handleLogout}> Log Out</button>
+        <button className="button logout font-sans" onClick={handleLogout}> Log Out</button>
       ) : (
         <div className="buttons">
-          <button className="button login" onClick={() => setShowLogin(true)}>
+          <button className="button login font-sans" onClick={() => setShowLogin(true)}>
             {" "}
             Login
           </button>
           <button
-            className="button register"
+            className="button register font-sans"
             onClick={() => setShowRegister(true)}
           >
             {" "}

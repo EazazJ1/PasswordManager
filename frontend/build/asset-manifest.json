@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.3a565413.css",
-    "main.js": "/static/js/main.bb922404.js",
+    "main.css": "/static/css/main.38c6c169.css",
+    "main.js": "/static/js/main.96a757d8.js",
+    "static/media/PasswordManager.png": "/static/media/PasswordManager.9788d98831a1778a06a2.png",
     "index.html": "/index.html",
-    "main.3a565413.css.map": "/static/css/main.3a565413.css.map",
-    "main.bb922404.js.map": "/static/js/main.bb922404.js.map"
+    "main.38c6c169.css.map": "/static/css/main.38c6c169.css.map",
+    "main.96a757d8.js.map": "/static/js/main.96a757d8.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a565413.css",
-    "static/js/main.bb922404.js"
+    "static/css/main.38c6c169.css",
+    "static/js/main.96a757d8.js"
   ]
 }
