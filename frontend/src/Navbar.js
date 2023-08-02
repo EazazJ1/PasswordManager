@@ -24,6 +24,15 @@ export const Navbar = () => {
     navigate('/');
   };
 
+  const handleLogin = () => {
+    setShowRegister(false); 
+    setShowLogin(true)
+  };
+
+  const handleRegister = () => {
+    setShowRegister(true); 
+    setShowLogin(false)
+  };
   const check = localStorage.getItem("user");
 
   return (
@@ -46,13 +55,13 @@ export const Navbar = () => {
         <button className="button logout font-sans" onClick={handleLogout}> Log Out</button>
       ) : (
         <div className="buttons">
-          <button className="button login font-sans" onClick={() => setShowLogin(true)}>
+          <button className="button login font-sans" onClick={handleLogin}>
             {" "}
             Login
           </button>
           <button
             className="button register font-sans"
-            onClick={() => setShowRegister(true)}
+            onClick={handleRegister}
           >
             {" "}
             Register
